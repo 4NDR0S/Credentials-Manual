@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GitHub App Setup Guide | Developer Documentation</title>
+    <!-- Tailwind CSS v3 with Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Inter for crisp typography -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+    <!-- BEGIN: Progress Header -->
+    <div class="progress-bar-container">
+        <div id="scrollProgress"></div>
+    </div>
+    <!-- END: Progress Header -->
+    <!-- BEGIN: Navigation -->
+    <nav class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-slate-200"
+        data-purpose="main-nav">
+        <div class="max-w-screen-xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <svg class="w-8 h-8 text-slate-900" fill="currentColor" viewbox="0 0 16 16">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                    </path>
+                </svg>
+                <span class="font-bold text-lg tracking-tight">App Credentials Manual</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+                <a class="hover:text-blue-600 transition-colors" href="#step-1">Access</a>
+                <a class="hover:text-blue-600 transition-colors" href="#step-2">Create</a>
+                <a class="hover:text-blue-600 transition-colors" href="#step-3">Permissions</a>
+                <a class="hover:text-blue-600 transition-colors" href="#step-4">Credentials</a>
+            </div>
+
+            <div class="flex items-center gap-2 ml-4">
+                <button class="lang-btn px-3 py-1 text-xs font-semibold border rounded-md hover:bg-slate-100"
+                    data-lang="en">
+                    EN
+                </button>
+
+                <button class="lang-btn px-3 py-1 text-xs font-semibold border rounded-md hover:bg-slate-100"
+                    data-lang="es">
+                    ES
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Navigation -->
+    <!-- BEGIN: Hero Section -->
+    <header class="relative py-16 px-4 text-center bg-white border-b border-slate-100" data-purpose="hero">
+        <div class="max-w-3xl mx-auto">
+            <span
+                class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase bg-blue-50 text-blue-600 rounded-full">Developer
+                Guide</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight" data-i18n="hero_title">
+                Master Your <span class="text-blue-600">GitHub App</span> Authentication
+            </h1>
+            <p class="text-lg text-slate-600 leading-relaxed" data-i18n="hero_description">
+                A precise, visual walkthrough to configuring credentials, managing permissions, and retrieving IDs for
+                your next-generation GitHub integration.
+            </p>
+        </div>
+    </header>
+    <!-- END: Hero Section -->
+    <main class="max-w-screen-xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- BEGIN: Main Content Area -->
+        <div class="lg:col-span-8 space-y-24">
+            <!-- STEP 1: Accessing GitHub Apps -->
+            <section class="scroll-mt-24" data-purpose="guide-step" id="step-1">
+                <div class="flex items-center gap-4 mb-8">
+                    <span
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white font-bold text-lg">1</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-i18n="step1_title">Accessing GitHub
+                        Apps</h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="p-6 md:p-8">
+                        <p class="text-slate-600 mb-6" data-i18n="step1_text">
+                            Navigate to your account or organization settings to begin. GitHub Apps allow for much more
+                            granular control compared to traditional OAuth.
+                        </p>
+                        <ol class="space-y-4 list-decimal list-inside text-slate-700 font-medium">
+                            <li class="p-3 bg-slate-50 rounded-lg" data-i18n="step1_li1">Click your profile picture in
+                                the top-right corner.
+                            </li>
+                            <li class="p-3 bg-slate-50 rounded-lg" data-i18n="step1_li2">Select <code
+                                    class="bg-slate-200 px-1.5 py-0.5 rounded text-sm">Settings</code>.</li>
+                            <li class="p-3 bg-slate-50 rounded-lg" data-i18n="step1_li3">On the left sidebar, scroll to
+                                <code class="bg-slate-200 px-1.5 py-0.5 rounded text-sm">Developer settings</code>.
+                            </li>
+                            <li class="p-3 bg-slate-50 rounded-lg" data-i18n="step1_li4">Click <code
+                                    class="bg-slate-200 px-1.5 py-0.5 rounded text-sm">GitHub Apps</code> → <code
+                                    class="bg-blue-600 text-white px-2 py-0.5 rounded text-sm">New GitHub App</code>.
+                            </li>
+                        </ol>
+                    </div>
+                    <!-- Image Placeholder -->
+                    <div
+                        class="bg-slate-100 relative flex flex-col items-center justify-center p-6 border-t border-slate-100">
+                        <img alt="GitHub Developer Settings UI"
+                            class="rounded-lg shadow-xl border border-slate-200 sm:max-w-[600px]" src="images/01.gif" />
+                        <!-- <span class="mt-4 text-xs text-slate-400 font-medium uppercase tracking-wider">Visual Guide:
+                            Settings Navigation</span> -->
+
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- STEP 2: Creating the App -->
+            <section class="scroll-mt-24" data-purpose="guide-step" id="step-2">
+                <div class="flex items-center gap-4 mb-8">
+                    <span
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white font-bold text-lg">2</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-i18n="step2_title">Creating the App
+                    </h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden p-6 md:p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    viewbox="0 0 24 24">
+                                    <path
+                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                                <p data-i18n="core_identity"></p>
+                            </h3>
+                            <ul class="space-y-4 text-sm text-slate-600">
+                                <li class="pb-3 border-b border-slate-100">
+                                    <strong class="text-slate-900 block">GitHub App name</strong>
+                                    <p data-i18n="github_app_name_desc">Give it a unique, professional name (e.g.,
+                                        "Company-Sync-Bot").</p>
+                                </li>
+                                <li class="pb-3 border-b border-slate-100">
+                                    <strong class="text-slate-900 block">Homepage URL</strong>
+                                    <p data-i18n="homepage_url_desc">The URL of your application or project repository.
+                                    </p>
+                                </li>
+                                <li class="pb-3">
+                                    <strong class="text-slate-900 block">Webhook Toggle</strong>
+                                    <p data-i18n="webhook_toggle_desc">Disable "Active" if you don't need real-time
+                                        events, or provide a Payload URL.</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Image Placeholder -->
+                        <div
+                            class="bg-slate-50 border-2 border-dashed border-slate-200 rounded-xl flex items-center justify-center p-4">
+                            <div class="text-center">
+                                <img alt="GitHub App creation form" class="rounded-xl shadow-md mx-auto
+                                transform transition-transform duration-300 ease-in-out 
+                                hover:bg-blue-700 hover:scale-110" src="images/02.gif" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- STEP 3: Permissions Setup -->
+            <section class="scroll-mt-24" data-purpose="guide-step" id="step-3">
+                <div class="flex items-center gap-4 mb-8">
+                    <span
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white font-bold text-lg">3</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-i18n="step3_title">Permissions Setup
+                    </h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="p-6 md:p-8">
+                        <p class="text-slate-600 mb-8 italic" data-i18n="least_privilege">Follow the "Least Privilege"
+                            principle. Select only what
+                            you need.</p>
+                        <div class="space-y-4">
+                            <!-- Permission Row -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                    <div>
+                                        <span class="font-semibold text-slate-900">Metadata</span>
+                                        <p class="text-xs text-slate-500" data-i18n="metadata_desc">Search repositories
+                                            and view basic info</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-white border border-slate-200 rounded text-xs font-bold text-slate-500 uppercase">Read-only
+                                    (Mandatory)</span>
+                            </div>
+                            <!-- Permission Row -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                    <div>
+                                        <span class="font-semibold text-slate-900">Contents</span>
+                                        <p class="text-xs text-slate-500" data-i18n="contents_desc">Access file
+                                            structure and code data</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-blue-50 border border-blue-100 rounded text-xs font-bold text-blue-600 uppercase">Read-only</span>
+                            </div>
+                            <!-- Permission Row -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                    <div>
+                                        <span class="font-semibold text-slate-900">Pull Requests</span>
+                                        <p class="text-xs text-slate-500" data-i18n="pr_desc">View PR descriptions and
+                                            reviewers</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-blue-50 border border-blue-100 rounded text-xs font-bold text-blue-600 uppercase">Read-only</span>
+                            </div>
+                        </div>
+
+                        <!-- Image Placeholder -->
+                        <div class="rounded-xl mt-4 bg-slate-50 relative flex flex-col items-center justify-center">
+                            <img alt="GitHub Developer Settings UI"
+                                class="rounded-2xl shadow-xl border border-slate-200 sm:w-full" src="images/03.gif" />
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- STEP 4: Getting Credentials -->
+            <section class="scroll-mt-24" data-purpose="guide-step" id="step-4">
+                <div class="flex items-center gap-4 mb-8">
+                    <span
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white font-bold text-lg">4</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-i18n="step4_title">Getting
+                        Credentials</h2>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-blue-700 mb-2" data-i18n="credentials_location_title">Where to
+                        find these credentials</h3>
+                    <p class="text-sm text-slate-600" data-i18n="credentials_location_text">
+                        After creating your GitHub App, navigate to the <strong>General</strong> tab inside the
+                        application settings.
+                        Here you will find the <strong>App ID</strong>, <strong>Client ID</strong>, and the section to
+                        generate your
+                        <strong>Private Key</strong>.
+                    </p>
+                </div>
+
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-900 rounded-2xl p-8 text-white">
+                        <h3 class="text-xl font-bold mb-4" data-i18n="core_identifiers">Core Identifiers</h3>
+
+                        <p class="text-slate-400 text-sm mb-6" data-i18n="identifier_info">These can be found in the "General" tab of your app
+                            settings.</p>
+                        <div class="space-y-4">
+                            <div class="group cursor-pointer">
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">App ID</label>
+                                <div
+                                    class="bg-slate-800 p-3 rounded-lg border border-slate-700 flex justify-between items-center">
+                                    <code class="text-blue-400">123456</code>
+                                    <svg class="w-4 h-4 text-slate-500 group-hover:text-white" fill="none"
+                                        stroke="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                    </svg>
+                                </div>
+
+                                <p class="text-xs text-slate-400 mt-2" data-i18n="app_id_desc">
+                                    Used to identify the GitHub App when generating a <strong>JWT authentication
+                                        token</strong>.
+                                </p>
+                            </div>
+                            <div class="group cursor-pointer">
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Client ID</label>
+                                <div
+                                    class="bg-slate-800 p-3 rounded-lg border border-slate-700 flex justify-between items-center">
+                                    <code class="text-blue-400">Iv1.a2b3c4d5e6f7</code>
+                                    <svg class="w-4 h-4 text-slate-500 group-hover:text-white" fill="none"
+                                        stroke="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                    </svg>
+                                </div>
+
+                                <p class="text-xs text-slate-400 mt-2" data-i18n="client_id_desc">
+                                    Public identifier of the GitHub App. Used mainly for OAuth flows and integrations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-2xl p-8 border border-slate-200 flex flex-col justify-center text-center">
+                        <div
+                            class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path
+                                    d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="private_key_title">Private Key</h3>
+                        <p class="text-slate-500 text-sm mb-6" data-i18n="private_key_desc">Scroll to the bottom of the
+                            General tab to generate your
+                            RSA private key.</p>
+                        <button
+                            class="w-full py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
+                            Generate Private Key
+                        </button>
+
+                        <div class="bg-slate-50 rounded-lg p-4 text-left text-sm text-slate-600 mt-4">
+                            <p class="mb-2"><strong data-i18n="important_title">Important:</strong></p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li data-i18n="pem_li1">The downloaded <code>.pem</code> file is used to sign JWT
+                                    tokens.</li>
+                                <li data-i18n="pem_li2">Keep this file secure and never upload it to a public
+                                    repository.</li>
+                                <li data-i18n="pem_li3">This key allows your application to authenticate as the GitHub
+                                    App.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-xl mt-4 bg-slate-50 relative flex flex-col items-center justify-center">
+                    <img alt="GitHub Developer Settings UI"
+                        class="rounded-2xl shadow-xl border border-slate-200 sm:w-full" src="images/04.gif"/>
+
+                </div>
+
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-8 mt-8">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4" data-i18n="auth_flow_title">How GitHub App
+                        Authentication Works</h3>
+
+                    <p class="text-slate-600 mb-6" data-i18n="auth_flow_text">
+                        GitHub Apps authenticate using a secure token flow. The Private Key is used to generate a JWT
+                        token,
+                        which is then exchanged for an Installation Access Token to interact with the GitHub API.
+                    </p>
+
+                    <div class="grid md:grid-cols-4 gap-4 text-center">
+
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                            <p class="font-semibold" data-i18n="flow_private_key">Private Key</p>
+                            <p class="text-xs text-slate-500" data-i18n="flow_generate_jwt">Generate JWT</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                            <p class="font-semibold" data-i18n="flow_jwt">JWT Token</p>
+                            <p class="text-xs text-slate-500" data-i18n="flow_signed_app">Signed with App ID</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                            <p class="font-semibold" data-i18n="flow_installation">Installation ID</p>
+                            <p class="text-xs text-slate-500" data-i18n="flow_identify">Identify installation</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                            <p class="font-semibold" data-i18n="flow_access">Access Token</p>
+                            <p class="text-xs text-slate-500" data-i18n="flow_api">Use GitHub API</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mt-6">
+                    <h4 class="font-semibold text-yellow-800 mb-2" data-i18n="security_notice">Security Notice</h4>
+                    <p class="text-sm text-yellow-700" data-i18n="security_notice_text">
+                        Never commit the downloaded <code>.pem</code> private key to a repository.
+                        Store it securely using environment variables or a secret manager.
+                    </p>
+                </div>
+            </section>
+
+
+
+
+            <!-- STEP 5 & 6: Installation -->
+            <section class="scroll-mt-24 space-y-12" data-purpose="guide-step" id="step-5">
+                <div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <span
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white font-bold text-lg">5</span>
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-i18n="step5_title">Installing the
+                            App</h2>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                        <p class="text-slate-600 mb-6" data-i18n="step5_text">On the left sidebar, click
+                            <strong>"Install App"</strong>. Choose
+                            the account or organization where you want the app to reside. This creates an
+                            <em>Installation</em> instance.
+                        </p>
+                        <div
+                            class="bg-slate-50 rounded-xl p-4 border border-slate-100 flex flex-col items-center justify-center">
+                            <img alt="Organization Selection"
+                                class="w-full h-auto rounded-xl border border-slate-200 sm:max-w-[600px]"
+                                src="images/05.gif" />
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-mt-24" id="step-6">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white font-bold text-lg">6</span>
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-i18n="step6_title">Getting
+                            Installation ID</h2>
+                    </div>
+                    <div class="bg-blue-600 rounded-2xl p-8 text-white relative overflow-hidden">
+                        <div class="relative z-10">
+                            <p class="mb-6 text-blue-100" data-i18n="step6_text">After installation, look at the URL in
+                                your browser. The
+                                trailing digits represent your specific <span class="font-bold text-white">Installation
+                                    ID</span>.</p>
+                            <div
+                                class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20 font-mono text-sm md:text-base break-all flex items-center justify-between">
+                                <span>github.com/settings/installations/<span
+                                        class="bg-yellow-400 text-slate-900 px-1 font-bold rounded">12345678</span></span>
+                                <span
+                                    class="hidden md:inline-block px-2 py-1 bg-white text-blue-600 rounded text-[10px] font-bold">URL
+                                    STRUCTURE</span>
+                            </div>
+                        </div>
+                        <!-- Decorative circle -->
+                        <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-blue-500 rounded-full opacity-50"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- END: Main Content Area -->
+        <!-- BEGIN: Sidebar Navigation (Desktop) -->
+        <aside class="hidden lg:block lg:col-span-4" data-purpose="sidebar-nav">
+            <div class="sticky top-28 space-y-8">
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6" data-i18n="quick_jump">
+                        Quick Jump</h4>
+                    <nav class="space-y-1">
+                        <a class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-600 hover:text-blue-600 transition-all font-medium border-l-2 border-transparent hover:border-blue-600"
+                            href="#step-1">
+                            <span class="text-xs opacity-50">01</span> Accessing GitHub
+                        </a>
+                        <a class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-600 hover:text-blue-600 transition-all font-medium border-l-2 border-transparent hover:border-blue-600"
+                            href="#step-2">
+                            <span class="text-xs opacity-50">02</span> Creating App
+                        </a>
+                        <a class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-600 hover:text-blue-600 transition-all font-medium border-l-2 border-transparent hover:border-blue-600"
+                            href="#step-3">
+                            <span class="text-xs opacity-50">03</span> Permissions
+                        </a>
+                        <a class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-600 hover:text-blue-600 transition-all font-medium border-l-2 border-transparent hover:border-blue-600"
+                            href="#step-4">
+                            <span class="text-xs opacity-50">04</span> Credentials
+                        </a>
+                        <a class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-600 hover:text-blue-600 transition-all font-medium border-l-2 border-transparent hover:border-blue-600"
+                            href="#step-5">
+                            <span class="text-xs opacity-50">05</span> Installing
+                        </a>
+                        <a class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-600 hover:text-blue-600 transition-all font-medium border-l-2 border-transparent hover:border-blue-600"
+                            href="#step-6">
+                            <span class="text-xs opacity-50">06</span> Installation ID
+                        </a>
+                    </nav>
+                </div>
+                <div class="bg-slate-900 rounded-2xl p-6 text-white overflow-hidden relative">
+                    <h4 class="font-bold text-lg mb-2 relative z-10" data-i18n="need_help">Need Help?</h4>
+                    <p class="text-slate-400 text-sm mb-4 relative z-10" data-i18n="need_help_text">Check out the
+                        official GitHub Developer docs
+                        for advanced configuration.</p>
+                    <a class="inline-flex items-center gap-2 text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors relative z-10"
+                        href="#">
+                        <p data-i18n="view_docs">View Official Docs</p>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </a>
+                    <!-- Decorative Background pattern -->
+                    <svg class="absolute top-0 right-0 opacity-10" height="100" viewbox="0 0 100 100" width="100">
+                        <circle cx="80" cy="20" fill="currentColor" r="40"></circle>
+                    </svg>
+                </div>
+            </div>
+        </aside>
+        <!-- END: Sidebar Navigation (Desktop) -->
+    </main>
+    <!-- BEGIN: Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12 px-4 mt-24" data-purpose="footer">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-slate-500 text-sm">
+                © 2026 GitHub App Credentials Guide. Built for Modern Developers.
+                <p>Created by: <span class="text-slate-700"> <a href="https://avp-portafolio.vercel.app/"
+                            target="_blank">Anthony Vela</a> </span></p>
+            </div>
+            <div class="flex gap-6">
+                <a class="text-slate-400 hover:text-slate-900 transition-colors" href="#">Privacy</a>
+                <a class="text-slate-400 hover:text-slate-900 transition-colors" href="#">Terms</a>
+                <a class="text-slate-400 hover:text-slate-900 transition-colors" href="#">Support</a>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+   
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    
+</body>
+
+</html>
